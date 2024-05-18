@@ -1,4 +1,5 @@
 import colorgram
+import random
 from turtle import Turtle, Screen
 
 tim = Turtle()
@@ -25,6 +26,7 @@ tim.setpos(-200, -200)
 ver = 0
 hor = 0
 
+''' Print same row of colors each time
 while ver <= 9:
     while hor <= 10:
         r = int(color_list[hor][0])
@@ -46,7 +48,26 @@ while ver <= 9:
         hor += 1
     hor = 0
     ver += 1
+'''
 
-
+# print random colors each row (from available)
+while ver <= 9:
+    while hor <= 10:
+        tim.color(random.choice(color_list))
+        print(r, g, b)
+        if hor == 9 and ver == 9:
+            break
+        elif hor == 10:
+            tim.bk(550)
+            tim.left(90)
+            tim.fd(50)
+            tim.right(90)
+            #tim.color(255,255,255)
+        else:
+            tim.stamp()
+        tim.fd(50)
+        hor += 1
+    hor = 0
+    ver += 1
 
 scr.exitonclick()
