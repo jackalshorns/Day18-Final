@@ -4,16 +4,18 @@ from turtle import Turtle, Screen
 
 tim = Turtle()
 scr = Screen()
-
 colors = colorgram.extract('20_001.jpg', 25)
-
-color_list = []
-
 tim.speed("fastest")
 tim.shape("circle")
 tim.penup()
 scr.colormode(255)
-hor = 0
+
+VERT_LINES = 10
+HOR_LINES = 5
+
+color_list = []
+
+
 
 for color in colors:
     r = color.rgb.r
@@ -51,14 +53,14 @@ while ver <= 9:
 '''
 
 # print random colors each row (from available)
-while ver <= 9:
-    while hor <= 10:
+while ver <= VERT_LINES - 1:
+    while hor <= HOR_LINES:
         tim.color(random.choice(color_list))
         print(r, g, b)
-        if hor == 9 and ver == 9:
+        if hor == HOR_LINES -1 and ver == VERT_LINES - 1:
             break
-        elif hor == 10:
-            tim.bk(550)
+        elif hor == HOR_LINES:
+            tim.bk(HOR_LINES * 60)
             tim.left(90)
             tim.fd(50)
             tim.right(90)
